@@ -1,12 +1,17 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import Layout from "@/components/layout/Layout";
+import type { ReactElement } from "react";
+import type { NextPageWithLayout } from "./_app";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      fgfgfgfg
-    </main>
-  )
-}
+const Page: NextPageWithLayout = () => {
+  return <p>hello world</p>;
+};
+
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default Page;
